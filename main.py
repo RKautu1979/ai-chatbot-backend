@@ -16,7 +16,7 @@ app = FastAPI()
 # Enable CORS for frontend (adjust URL if needed)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or ["http://127.0.0.1:5500"] if you serve frontend locally
+    allow_origins=["https://chatbot.neo-studio.live"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -41,5 +41,6 @@ async def chat(user_msg: UserMessage):
 
     # Generate response
     reply = generate_reply(user_input, context)
+
 
     return {"reply": reply}
